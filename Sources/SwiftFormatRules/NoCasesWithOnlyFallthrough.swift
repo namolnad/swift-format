@@ -39,7 +39,7 @@ public final class NoCasesWithOnlyFallthrough: SyntaxFormatRule {
         diagnose(.collapseCase(name: "\(label)"), on: switchCase)
         violations.append(label)
       } else {
-        guard violations.count > 0 else {
+        guard !violations.isEmpty else {
           newCases.append(switchCase)
           continue
         }

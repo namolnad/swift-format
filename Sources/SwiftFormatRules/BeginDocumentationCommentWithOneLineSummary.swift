@@ -91,9 +91,9 @@ public final class BeginDocumentationCommentWithOneLineSummary: SyntaxLintRule {
 
     let trimmedText = firstPart.trimmingCharacters(in: .whitespacesAndNewlines)
     let (commentSentences, trailingText) = sentences(in: trimmedText)
-    if commentSentences.count == 0 {
+    if commentSentences.isEmpty {
       diagnose(.terminateSentenceWithPeriod(trimmedText), on: decl)
-    } else if commentSentences.count > 1 {
+    } else {
       diagnose(.addBlankLineAfterFirstSentence(commentSentences[0]), on: decl)
       if !trailingText.isEmpty {
         diagnose(.terminateSentenceWithPeriod(trailingText), on: decl)

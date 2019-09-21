@@ -55,7 +55,7 @@ public final class UseEnumForNamespacing: SyntaxFormatRule {
   ///
   /// If any of the members causes the type to disqualify as a namespace, this method returns nil.
   func membersToKeepIfUsedAsNamespace(_ members: MemberDeclListSyntax) -> MemberDeclListSyntax? {
-    if members.count == 0 { return nil }
+    if members.isEmpty { return nil }
     var declList = [MemberDeclListItemSyntax]()
 
     for member in members {

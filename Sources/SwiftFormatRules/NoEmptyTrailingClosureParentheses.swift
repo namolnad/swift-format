@@ -25,7 +25,7 @@ import SwiftSyntax
 public final class NoEmptyTrailingClosureParentheses: SyntaxFormatRule {
 
   public override func visit(_ node: FunctionCallExprSyntax) -> ExprSyntax {
-    guard node.argumentList.count == 0 else { return node }
+    guard node.argumentList.isEmpty else { return node }
 
     guard node.trailingClosure != nil && node.argumentList.isEmpty && node.leftParen != nil else {
       return node

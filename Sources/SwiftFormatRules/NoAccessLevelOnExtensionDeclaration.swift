@@ -28,7 +28,7 @@ import SwiftSyntax
 public final class NoAccessLevelOnExtensionDeclaration: SyntaxFormatRule {
 
   public override func visit(_ node: ExtensionDeclSyntax) -> DeclSyntax {
-    guard let modifiers = node.modifiers, modifiers.count != 0 else { return node }
+    guard let modifiers = node.modifiers, !modifiers.isEmpty else { return node }
     guard let accessKeyword = modifiers.accessLevelModifier else { return node }
 
     let keywordKind = accessKeyword.name.tokenKind

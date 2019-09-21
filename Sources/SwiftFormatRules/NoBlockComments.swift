@@ -108,7 +108,7 @@ public final class NoBlockComments: SyntaxFormatRule {
     var lineCommentText = [String]()
 
     for line in splitComment {
-      let startsComment = line.starts(with: " ") || line.count == 0 ? "//" : "// "
+      let startsComment = line.starts(with: " ") || line.isEmpty ? "//" : "// "
       lineCommentText.append(startsComment + line)
     }
     return lineCommentText.joined(separator: "\n")
